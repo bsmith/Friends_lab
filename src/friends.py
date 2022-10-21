@@ -24,15 +24,23 @@ def total_money(people):
         total_monies += person["monies"]
     return total_monies
 
+def check_person_has_money(person, amount):
+    if person["monies"] < amount:
+        raise ValueError("lender ran out of monies")
+
 def lend_money(lender, lendee, amount):
+    check_person_has_money(lender, amount)
     lender["monies"] -= amount
     lendee["monies"] += amount
 
+def concatLists(lists):
+    result = []
+    for list in lists:
+        result += list
+    return result
+
 def all_favourite_foods(people):
-    all_foods = []
-    for person in people:
-        all_foods += person["favourites"]["snacks"]
-    return all_foods
+    return concatLists([person["favourites"]["snacks"] for person in people])
 
 def find_no_friends(people):
     no_friends = []
