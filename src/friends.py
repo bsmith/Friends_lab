@@ -40,15 +40,17 @@ def concatLists(lists):
     return result
 
 # this doesn't take account of iterators!
+# leave off the [] to use iterators instead!
 def all_favourite_foods(people):
     return concatLists(person["favourites"]["snacks"] for person in people)
 
 def find_no_friends(people):
-    no_friends = []
-    for person in people:
-        if len(person["friends"]) == 0:
-            no_friends.append(person)
-    return no_friends
+    # no_friends = []
+    # for person in people:
+    #     if len(person["friends"]) == 0:
+    #         no_friends.append(person)
+    # return no_friends
+    return [person for person in people if len(person["friends"]) == 0]
 
 def unique_favourite_tv_shows(people):
     unique_tv_shows = []
