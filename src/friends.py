@@ -39,8 +39,9 @@ def concatLists(lists):
         result += list
     return result
 
+# this doesn't take account of iterators!
 def all_favourite_foods(people):
-    return concatLists([person["favourites"]["snacks"] for person in people])
+    return concatLists(person["favourites"]["snacks"] for person in people)
 
 def find_no_friends(people):
     no_friends = []
