@@ -6,10 +6,11 @@ def get_favourite_tv_show (person):
 
 def likes_to_eat (person, food):
     snacks = person["favourites"]["snacks"]
-    for snack in snacks:
-        if snack == food:
-            return True
-    return False
+    return food in snacks
+    # for snack in snacks:
+    #     if snack == food:
+    #         return True
+    # return False
 
 def add_friend (person, new_friend):
     person["friends"].append(new_friend)
@@ -44,8 +45,6 @@ def unique_favourite_tv_shows(people):
     unique_tv_shows = []
     for person in people:
         tv_show = person["favourites"]["tv_show"]
-        if tv_show in unique_tv_shows:
-            pass
-        else:
+        if tv_show not in unique_tv_shows:
             unique_tv_shows.append(tv_show)
     return unique_tv_shows
