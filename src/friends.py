@@ -53,9 +53,11 @@ def find_no_friends(people):
     return [person for person in people if len(person["friends"]) == 0]
 
 def unique_favourite_tv_shows(people):
-    unique_tv_shows = []
-    for person in people:
-        tv_show = person["favourites"]["tv_show"]
-        if tv_show not in unique_tv_shows:
-            unique_tv_shows.append(tv_show)
-    return unique_tv_shows
+    # unique_tv_shows = []
+    # for person in people:
+    #     tv_show = person["favourites"]["tv_show"]
+    #     if tv_show not in unique_tv_shows:
+    #         unique_tv_shows.append(tv_show)
+    # return unique_tv_shows
+    # NB this is a generator comprehension, not a list comprehension
+    return set(person["favourites"]["tv_show"] for person in people)

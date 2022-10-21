@@ -142,7 +142,8 @@ class TestFriends(unittest.TestCase):
   # @unittest.skip("delete this line to run the test")
   def test_unique_favourite_tv_shows(self):
     result = unique_favourite_tv_shows(self.people)
-    expected = ["Friends", "Baywatch", "Pokemon", "X-Files"]
+    # expected = ["Friends", "Baywatch", "Pokemon", "X-Files"]
+    expected = {"Friends", "Baywatch", "Pokemon", "X-Files"}
     self.assertEqual(expected, result)
 
   # BONUS: Try to refactor the previous test and function to use Python's built-in set() function, returning an object of all unique tv shows.
